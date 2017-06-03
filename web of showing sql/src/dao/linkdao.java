@@ -1,10 +1,10 @@
-package Dao;
+package dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.DriverManager;
-public class dao {
+public class linkdao {
 		String dcurl="jdbc:mysql://localhost:3306/how2java?useUnicode=true&characterEncoding=utf-8";
 		String user="root";
 		String password="admin";

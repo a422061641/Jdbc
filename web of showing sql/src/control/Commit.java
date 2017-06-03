@@ -1,6 +1,7 @@
-package javaweb;
+package control;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -12,21 +13,25 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Dao.*;
+import dao.*;
+import dao.linkdao;
+import net.sf.json.JSONArray;
 public class Commit extends HttpServlet{
 	public ResultSet rs=null;
-	public String Target="/show.jsp";
+	
 	public void initP(){
 		System.out.println("start");
-		
 	}
-	public void service(HttpServletRequest request,HttpServletResponse response){
+	public void service(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		ArrayList<String> ColumnNames=new ArrayList<String>();
 		ArrayList<String> Columnvalues=new ArrayList<String>();
+		ArrayList<String> nameandvalue=new ArrayList<String>();
 		System.out.println("service");
 		String input_sql=request.getParameter("input_sql");
 		System.out.println(input_sql);
-		dao dao=new dao();
+		linkdao dao=new linkdao();
 		try {
 			rs=dao.MysqLlinkJdbc(input_sql);
 		}catch(Exception e){
@@ -39,23 +44,17 @@ public class Commit extends HttpServlet{
 					Columnvalues.add(rs.getString(i+1));//read and add Columnvalues
 					}
 						}
-			request.setAttribute("values",Columnvalues);//add Columnvalues to request
 			for (int i = 0; i < metaData.getColumnCount(); i++){
 				ColumnNames.add(metaData.getColumnName(i+1));//read and add ColumnNames
 				}
-			request.setAttribute("names",ColumnNames);//add ColumnNames to request
-			ServletContext context=getServletContext();
-			RequestDispatcher dispatcher=context.getRequestDispatcher(Target);
-			try {
-				dispatcher.forward(request, response);
-			} catch (ServletException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			String x=Integer.toString(metaData.getColumnCount());
+			nameandvalue.add(x);
+			nameandvalue.addAll(ColumnNames);
+			nameandvalue.addAll(Columnvalues);
+			response.getWriter().write(JSONArray.fromObject(nameandvalue).toString());
+			System.out.println(JSONArray.fromObject(nameandvalue).toString());
 			dao.close();
+			System.out.println("service end");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

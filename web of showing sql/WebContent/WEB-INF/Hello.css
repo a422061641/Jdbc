@@ -1,53 +1,38 @@
 @charset "utf-8";
 /* CSS Document */
-body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td,
-	img, div, dl, dt, dd, input {
-	margin: 0;
-	padding: 0;
+.top_area{
+	height:50px;background-color:#4593FD; line-height:50px;
 }
-
-body {
-	font-size: 12px;
+p{
+	font-family:"Microsoft YaHei", "微软雅黑";
+	 font-size:26px;
+	padding-left:545px;
 }
+.logoBar{height:85px; background-color:#1D7AD9;}
+.search_box{width:1366px; padding-top:23px; padding-left:445px;}
+.search_text{width:350px;height:35px; line-height:35px\9;/*css hack  \9 代表所有的ie浏览器*/ padding:0 10px; background-color:#FFF;}
+.search_btn{width:70px; height:35px; font-size:14px; font-family:"Microsoft YaHei", "微软雅黑"; background-color:#FF8C00; color:#FFF;}
 
-img {
-	border: none;
+/* show.jsp*/
+table.gridtable{
+	font-family: verdana,arial,sans-serif;
+	font-size:20px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
 }
-
-li {
-	list-style: none;
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
 }
-
-input, select, textarea {
-	outline: none;
-	border: none;
-	background: none;
-}
-
-textarea {
-	resize: none;
-}
-
-a {
-	text-decoration: none;
-	color: #656565;
-}
-
-/*清浮动*/
-.clearfix:after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
-.clearfix {
-	zoom: 1;
-}
-
-.fl {
-	float: left;
-}
-
-.fr {
-	float: right;
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
 }

@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+.toparea{
+	height:50px;background-color:#dd3022; line-height:50px;
+}
+p{
+	font-family:"Microsoft YaHei", "微软雅黑";
+	font-size:20px;
+	padding-left:45px;
+	color:#ffffff;
+}
+.inputare{height:300px;}
+#search_btn{width:70px; height:35px; font-size:14px; font-family:"Microsoft YaHei", "微软雅黑"; background-color:#ff8080; color:#FFF;border-radius:5px;}
+#input_sql{width:80%; height:135px;margin-left:100px;margin-top:100px;border-color:#e74851;border-style:solid;border-width:1px;border-radius:5px;}
+#content_table{margin:0 auto;}
+table{
+	border:1px; border-style: solid;border-color: #ff8080;background-color: #ffffff;border-radius:5px;
+}

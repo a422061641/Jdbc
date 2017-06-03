@@ -8,29 +8,21 @@
 	<display-name>Tomcat Documentation</display-name>
 	<description>
      Tomcat Documentation.
-  </description>
+    </description>
+	<!-- <filter> -->
+	<!-- <filter-name>struts2</filter-name> -->
+	<!-- <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class> -->
+	<!-- </filter> -->
+	<!-- <filter-mapping> -->
+	<!-- <filter-name>struts2</filter-name> -->
+	<!-- <url-pattern>/*</url-pattern> -->
+	<!-- </filter-mapping> -->
 	<servlet>
 		<servlet-name>commit</servlet-name>
-		<servlet-class>javaweb.Commit</servlet-class>
+		<servlet-class>control.Commit</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>commit</servlet-name>
 		<url-pattern>/commit</url-pattern>
 	</servlet-mapping>
-	<context-param>
-		<param-name>driver</param-name>
-		<param-value>com.mysql.jdbc.Driver</param-value>
-	</context-param>
-	<context-param>
-		<param-name>url</param-name>
-		<param-value>jdbc:mysql://localhost:3306/how2java</param-value>
-	</context-param>
-	<context-param>
-		<param-name>user</param-name>
-		<param-value>root</param-value>
-	</context-param>
-	<context-param>
-		<param-name>password</param-name>
-		<param-value>admin</param-value>
-	</context-param>
 </web-app>
